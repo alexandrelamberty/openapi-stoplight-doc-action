@@ -12,4 +12,5 @@ build:
 
 ## run: run the application
 run: build
-	./${BINARY_NAME} -title=$(title) -file=$(file)
+	./${BINARY_NAME} -title=$(title) -file=$(file) -directory=$(directory)
+
