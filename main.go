@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"html/template"
+	"log"
 	"os"
 	"path/filepath"
 )
@@ -20,8 +21,15 @@ var title string
 var directory string
 
 func main() {
+	// Runner path
+	runnerPath, err := os.Getwd()
+	if err != nil {
+		log.Println(err)
+	}
+	fmt.Println(runnerPath)  
+
 	// Parse the template
-	tmpl = template.Must(template.ParseFiles("./template.tmpl"))
+	tmpl = template.Must(template.ParseFiles(filepath.Join(runnerPath, "template.tmpl")))
 
 	// Parse the command-line flags
 	flag.StringVar(&file, "file", "api.yaml", "Path to the input file")
