@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 	"html/template"
-	"log"
 	"os"
 	"path/filepath"
 )
@@ -22,16 +21,41 @@ var directory string
 
 
 func main() {
-	htmlTemplate := ``
-	// Runner path
-	runnerPath, err := os.Getwd()
-	if err != nil {
-		log.Println(err)
-	}
-	fmt.Println(runnerPath)  
 
+	htmlTemplate := `
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>{{.Title}}</title>
+    <!-- Embed elements Elements via Web Component -->
+    <script src="https://unpkg.com/@stoplight/elements/web-components.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@stoplight/elements/styles.min.css"
+    />
+  </head>
+  <style>
+    body {
+      font-family: ui-sans-serif, sans-serif;
+      font-size: 12px;
+      height: 100vh;
+    }
+  </style>
+  <body>
+    <elements-api
+      apiDescriptionUrl="{{.File}}"
+      router="hash"
+    />
+  </body>
+</html>
+  `
 	// Parse the template
-	tmpl, err = template.New("index.html").Parse(htmlTemplate)
+	tmpl, err := template.New("index.html").Parse(htmlTemplate)
 	if err != nil {
 		panic(err)
 	}

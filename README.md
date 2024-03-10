@@ -24,7 +24,7 @@ jobs:
               uses: actions/checkout@v4
 
             - name: Build
-              uses: alexandrelamberty/openapi-doc-action@v0.0.1
+              uses: alexandrelamberty/openapi-stoplight-doc-action@v1.0.0
               with:
                   title: My API Documentation
                   file: ./api-spec.yaml
