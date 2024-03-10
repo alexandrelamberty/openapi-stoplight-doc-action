@@ -20,7 +20,9 @@ var file string
 var title string
 var directory string
 
+
 func main() {
+	htmlTemplate := ``
 	// Runner path
 	runnerPath, err := os.Getwd()
 	if err != nil {
@@ -29,7 +31,10 @@ func main() {
 	fmt.Println(runnerPath)  
 
 	// Parse the template
-	tmpl = template.Must(template.ParseFiles(filepath.Join(runnerPath, "template.tmpl")))
+	tmpl, err = template.New("index.html").Parse(htmlTemplate)
+	if err != nil {
+		panic(err)
+	}
 
 	// Parse the command-line flags
 	flag.StringVar(&file, "file", "api.yaml", "Path to the input file")
