@@ -21,7 +21,7 @@ var directory string
 
 func main() {
 	// Parse the template
-	tmpl = template.Must(template.ParseFiles("template.tmpl"))
+	tmpl = template.Must(template.ParseFiles("./template.tmpl"))
 
 	// Parse the command-line flags
 	flag.StringVar(&file, "file", "api.yaml", "Path to the input file")
