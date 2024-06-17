@@ -1,3 +1,5 @@
+[![Go CI](https://github.com/alexandrelamberty/openapi-stoplight-doc-action/actions/workflows/golang.yaml/badge.svg)](https://github.com/alexandrelamberty/openapi-stoplight-doc-action/actions/workflows/golang.yaml)
+
 # OpenAPI Documentation Action
 
 Action for generating documentation using the Web Component
