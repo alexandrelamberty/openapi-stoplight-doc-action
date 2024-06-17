@@ -13,8 +13,7 @@ name: Documentation
 on: 
     push:
         branches: ["master"]
-    pull_request:
-        branches: ["master"]
+
 jobs:
     doc:
         name: Documentation
